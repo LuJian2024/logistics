@@ -1,6 +1,9 @@
 "use client"; // This is a client component
 
+import { sendMail } from '@/lib/mailer';
 import { useForm } from 'react-hook-form';
+import dotenv from 'dotenv';
+dotenv.config({ path: './.env.local' });
 
 type ContactFormData = {
   name: string;
@@ -10,16 +13,31 @@ type ContactFormData = {
 };
 
 export default function ContactForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<ContactFormData>();
+  const { register, handleSubmit, reset, formState: { isSubmitting,errors } } = useForm<ContactFormData>();
 
-  const onSubmit = (data: ContactFormData) => {
-    console.log(data);
-    // 这里可以添加表单提交逻辑
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      await sendMail({
+        from: process.env.NEXT_PUBLIC_EMAIL_FROM, 
+        to: 'jian.lu.ou@gmail.com', 
+        subject: `New Contact Form Submission from ${data.name}`,
+        text: `
+          Name: ${data.name}
+          Email: ${data.email}
+          Phone: ${data.phone}
+          Message: ${data.message}
+        `,
+        attachments: [] // Add any attachments if needed
+      });
+      
+      alert('Message sent successfully!');
+      reset(); // reset the form after successful submission
+    } catch (error) {
+      console.error('Failed to send message:', error);
+      alert('Failed to send message. Please try again.');
+    }
   };
+
 
   return (
     <div className="max-w-md mx-auto">
@@ -57,7 +75,7 @@ export default function ContactForm() {
         <div>
           <label htmlFor="phone" className="block mb-1">Phone</label>
           <div className="flex">
-            <select 
+          {/* <select 
               className="p-2 border border-gray-300 rounded-l bg-gray-100"
               {...register('phoneCountry')}
               defaultValue="US"
@@ -65,7 +83,7 @@ export default function ContactForm() {
               <option value="US">US ▼</option>
               <option value="UK">UK</option>
               <option value="CA">CA</option>
-            </select>
+            </select> */}  
             <input
               id="phone"
               type="tel"
@@ -88,10 +106,12 @@ export default function ContactForm() {
         
         <button
           type="submit"
+          disabled={isSubmitting}
           className="w-full bg-black text-white py-3 px-6 rounded hover:bg-gray-800 transition"
         >
-          Get started
+         {isSubmitting ? 'Sending...' : 'Get started'}
         </button>
+        
       </form>
       
       <div className="mt-8 text-center">
