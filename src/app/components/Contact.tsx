@@ -19,7 +19,8 @@ export default function ContactForm() {
     try {
       await sendMail({
         from: process.env.NEXT_PUBLIC_EMAIL_FROM, 
-        to: 'jian.lu.ou@gmail.com', 
+        // to: 'jian.lu.ou@gmail.com', 
+        to: 'julijana3uneva@gmail.com', 
         subject: `New Contact Form Submission from ${data.name}`,
         text: `
           Name: ${data.name}
