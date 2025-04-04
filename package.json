@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "framer-motion": "^12.6.3",
+    
+    "lucide-react": "^0.487.0",
+   
     "@ionic/react": "^8.5.2",
     "dotenv": "^16.4.7",
     "ionicons": "^7.4.0",
