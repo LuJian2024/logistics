@@ -9,9 +9,9 @@ const services = [
 
 export default function Services() {
   return (
-    <div>
-      <h1 className="text-4xl font-bold text-blue-600">Services</h1>
-      <div className="flex flex-col">
+    <div className="w-[85%] mx-auto">
+      <h1 className="text-3xl font-bold text-blue-600 text-center mb-2">Services</h1>
+      <div className="flex flex-wrap justify-between">
       {services.map((service, index) => (
         <ServiceCard
           key={index}
@@ -20,6 +20,9 @@ export default function Services() {
         />
       ))}
       </div>
+      
+
+      
     </div>
   );
 }
