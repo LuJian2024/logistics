@@ -24,7 +24,7 @@ const ServiceCard = ({ name, description }: ServiceCardProps) => {
                 <h2 className="md:text-xl font-bold text-[#A2BC8D] text-center">{name}</h2>
                 <div className="flex flex-col">
                     {description.map((el, index) => (
-                        <div className={serviceListElement} key={index}><Truck/>{el}</div>
+                        <div className={serviceListElement} key={index}><Truck className="w-5 h-5 flex-shrink-0"/>{el}</div>
                     ))}
                 </div>
                 </div>
