@@ -1,10 +1,11 @@
 import ServiceCard from "./ServiceCard/ServiceCard";
 
 const services = [
-  { name: "Premium Delivery", description: "Fast and reliable delivery service for your needs." },
-  { name: "Logistics Planning", description: "Efficient planning to optimize your supply chain." },
-  { name: "Warehouse Management", description: "Streamlined solutions for managing your inventory." },
-  { name: "Freight Forwarding", description: "Comprehensive freight services for global shipping." },
+  { name: "Fleet Management and Coordination", description: ["Professional management and coordination of transportation companies", "Optimization of routes and schedules for efficient delivery", "Real-time vehicle tracking"] },
+  { name: "Referral to Leading Transportation Companies", description: ["Mediation and contract agreements with leading European transportation companies", "Ensuring continuous transport orders", "Improvement of company ratings and reputation"] },
+  { name: "24/7 Support and Consulting", description: ["Available professional support around the clock", "Consulting for optimizing transport processes", "Solution of problems with documents and permits"] },
+  { name: "Financial and Administrative Support", description: ["Assistance with invoicing and payment collections", "Management of documentation and logistical processes", "Reduction of administrative costs"] },
+  { name: "Special Transport (ADR & Temperature-Controlled Transport)", description: ["Dangerous goods transport (ADR) according to European regulations", "Refrigerated and deep-frozen transport for fresh and frozen goods", "Temperature monitoring to ensure the quality of goods"] },
 ];
 
 export default function Services() {
