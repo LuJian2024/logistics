@@ -1,0 +1,8 @@
+{
+  "home":{
+  "welcomeMessage": "Welcome to our site",
+  "aboutUs": "About Us",
+  "services": "Services",
+  "contact": "Contact",
+  "footerText": "All rights reserved."
+}}

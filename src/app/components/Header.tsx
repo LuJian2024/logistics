@@ -1,24 +1,46 @@
 import Image from "next/image";
-import Navbar from "../components/Navbar";
+//import Navbar from "../components/Navbar";
 
 export default function Home() {
   return (
     <div className="relative">
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Banner Image */}
-      <div className="h-screen relative">
+      {/* <div className="h-screen relative"> 
         <Image
-          src="/images/hero-1.jpg"
+          src="/images/lkw-banner-1.png"
           alt="Banner"
           fill
-          className="object-cover"
+          //className="object-contain w-full h-full"
+           className="object-cover object-top"
+          // width={1920}
+          // height={1080}
           priority
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold">
+        /> */}
+        {/* <div className="relative w-full">
+  <Image
+    src="/images/lkw-banner-1.png"
+    alt="Banner"
+    layout="responsive"
+    width={1600}
+    height={900}
+    className="object-contain"
+    priority
+  /> */}
+  <div className="relative w-full h-screen" >
+  <Image
+    src="/images/lkw-hero.png"
+    alt="Banner"
+    fill
+    className="object-cover"
+    priority
+  />
+         <div className="absolute inset-0" /> 
+        {/* <div className="absolute inset-0 bg-gray-900/20" /> */}
+        {/* <div className="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold">
           Welcome to Our Logistic World
-        </div>
+        </div> */}
       </div>
 
        {/* Rest of the page  */}
